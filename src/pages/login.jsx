@@ -11,6 +11,7 @@ export default function Login() {
     try {
       const res = await api().post("/auth/login", { email, password });
       localStorage.setItem("token", res.data.token);
+        localStorage.setItem("role", res.data.user.rol);   // ✅ correcto
       window.location.href = "/dashboard";
     } catch {
       Swal.fire("Error", "Credenciales inválidas", "error");
@@ -24,9 +25,17 @@ export default function Login() {
         <input className="input" placeholder="Email" value={email} onChange={e=>setEmail(e.target.value)} />
         <input type="password" className="input" placeholder="Contraseña" value={password} onChange={e=>setPassword(e.target.value)} />
         <button className="btn w-full">Ingresar</button>
-        <p className="text-center mt-3">
-          ¿Sin cuenta? <a className="text-blue-700 underline" href="/register">Crear cuenta</a>
-        </p>
+              <p className="text-center mt-3">
+                  ¿Sin cuenta? Contactate con nosotros por WhatsApp
+                  <a
+                      className="text-blue-700 underline ml-1"
+                      href="https://wa.me/5491166292503"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                  >
+                      haciendo clic aquí
+                  </a>
+              </p>
       </form>
     </div>
   );

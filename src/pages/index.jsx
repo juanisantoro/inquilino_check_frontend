@@ -47,7 +47,7 @@ export default function Landing() {
           Un historial real, confiable y actualizado.
         </motion.p>
 
-        <motion.a
+        {/* <motion.a
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
@@ -56,7 +56,7 @@ export default function Landing() {
           className="inline-block bg-primary text-white px-8 py-3 rounded-lg text-lg font-semibold shadow hover:bg-blue-900 transition"
         >
           Crear cuenta gratis
-        </motion.a>
+        </motion.a> */}
       </section>
 
       {/* ¿QUÉ HACE? */}
