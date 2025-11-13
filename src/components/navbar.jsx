@@ -1,17 +1,24 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
+
+
 export default function Navbar() {
-    const [isOpen, setIsOpen] = useState(false);
     const [role, setRole] = useState(null);
+    const [hasSession, setHasSession] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
+    // Solo se ejecuta en el cliente
     useEffect(() => {
-        setRole(localStorage.getItem("role"));
-    }, []);
+        const token = localStorage.getItem("token");
+        const r = localStorage.getItem("role");
 
+        setHasSession(!!token);
+        setRole(r);
+    }, []);
     return (
         <nav className="bg-white shadow-md px-6 py-3 flex items-center justify-between sticky top-0 z-50">
-            <Link href="/dashboard" className="text-xl font-bold text-blue-600">
+            <Link href="/" className="text-xl font-bold text-blue-600">
                 InquilinoCheck
             </Link>
 
@@ -25,7 +32,7 @@ export default function Navbar() {
 
             <div className={`md:flex gap-6 ${isOpen ? "block" : "hidden"}`}>
                 <Link href="/dashboard" className="nav-link">
-                    Inicio
+                    Panel principal
                 </Link>
 
                 <Link href="/buscar" className="nav-link">
@@ -43,15 +50,25 @@ export default function Navbar() {
                     </Link>
                 )}
 
-                <button
-                    onClick={() => {
-                        localStorage.clear();
-                        window.location.href = "/";
-                    }}
-                    className="bg-blue-600 text-white px-4 py-1 rounded-md hover:bg-blue-700"
-                >
-                    Cerrar sesión
-                </button>
+                {/* Botón dinámico */}
+                {hasSession ? (
+                    <button
+                        onClick={() => {
+                            localStorage.clear();
+                            window.location.href = "/login";
+                        }}
+                        className="bg-blue-600 text-white px-4 py-1 rounded-md hover:bg-blue-700"
+                    >
+                        Cerrar sesión
+                    </button>
+                ) : (
+                    <Link
+                        href="/login"
+                        className="bg-blue-600 text-white px-4 py-1 rounded-md hover:bg-blue-700"
+                    >
+                        Iniciar sesión
+                    </Link>
+                )}
             </div>
 
             <style jsx>{`

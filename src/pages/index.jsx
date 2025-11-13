@@ -9,19 +9,7 @@ export default function Landing() {
   return (
     <div className="bg-secondary min-h-screen text-primary">
       {/* HEADER */}
-      <header className="bg-white shadow">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-primary">
-            InquilinoCheck
-          </h1>
-          <a
-            href="/login"
-            className="text-primary font-semibold hover:underline"
-          >
-            Iniciar sesión
-          </a>
-        </div>
-      </header>
+
 
       {/* HERO */}
       <section className="max-w-6xl mx-auto px-6 py-20 text-center">
