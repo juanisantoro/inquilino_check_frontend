@@ -51,12 +51,15 @@ export default function Navbar() {
 
                         {/* 🔹 Solo admin */}
                         {role === "admin" && (
-                            <Link
-                                href="/admin/inmobiliarias"
-                                className="nav-link text-blue-700 font-semibold"
-                            >
-                                Administrar inmobiliarias
-                            </Link>
+                            <>
+                                <Link href="/admin/inmobiliarias" className="nav-link text-blue-700 font-semibold">
+                                    Administrar inmobiliarias
+                                </Link>
+
+                                <Link href="/admin/usuarios/page" className="nav-link text-blue-700 font-semibold">
+                                    Administrar usuarios
+                                </Link>
+                            </>
                         )}
                     </>
                 )}

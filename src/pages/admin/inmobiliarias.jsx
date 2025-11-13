@@ -20,7 +20,7 @@ export default function AdminInmobiliarias() {
 
     const cargarInmobiliarias = async () => {
         try {
-            const res = await api().get("/admin/inmobiliarias");
+            const res = await api().get("/admin");
             setLista(res.data);
         } catch (err) {
             console.log(err);
@@ -29,7 +29,7 @@ export default function AdminInmobiliarias() {
 
     const toggleEstado = async (id) => {
         try {
-            await api().patch(`/admin/inmobiliarias/${id}/toggle`);
+            await api().patch(`/admin/${id}/toggle`);
             cargarInmobiliarias();
         } catch (err) {
             console.log(err);
