@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
-import { api } from "../lib/api";
+import api  from "../lib/api";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -9,7 +9,8 @@ export default function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await api().post("/auth/login", { email, password });
+        debugger;
+      const res = await api.post("/auth/login", { email, password });
       localStorage.setItem("token", res.data.token);
         localStorage.setItem("role", res.data.user.rol);   // ✅ correcto
       window.location.href = "/dashboard";
