@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Swal from "sweetalert2";
-import { api } from "../../lib/api";
+import  api  from "../../lib/api";
 
 export default function Historial() {
   const router = useRouter();
@@ -12,7 +12,7 @@ export default function Historial() {
   const load = async () => {
     if (!id) return;
     try {
-      const res = await api().get("/evaluaciones/" + id);
+      const res = await api.get("/evaluaciones/" + id);
       setEvaluaciones(res.data);
     } catch {
       Swal.fire("Error", "No se pudo cargar", "error");
@@ -24,7 +24,7 @@ export default function Historial() {
   const add = async (e) => {
     e.preventDefault();
     try {
-      await api().post("/evaluaciones", { id_inquilino: id, ...form });
+      await api.post("/evaluaciones", { id_inquilino: id, ...form });
       setForm({ comentario: "", puntaje: 5 });
       await load();
     } catch {

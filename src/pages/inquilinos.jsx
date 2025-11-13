@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-import { api } from "../lib/api";
+import  api  from "../lib/api";
 
 export default function Inquilinos() {
   const [list, setList] = useState([]);
@@ -8,7 +8,7 @@ export default function Inquilinos() {
 
   const load = async () => {
     try {
-      const res = await api().get("/inquilinos");
+      const res = await api.get("/inquilinos");
       setList(res.data);
     } catch {
       Swal.fire("Error", "No se pudo cargar", "error");
@@ -20,7 +20,7 @@ export default function Inquilinos() {
   const create = async (e) => {
     e.preventDefault();
     try {
-      await api().post("/inquilinos", form);
+      await api.post("/inquilinos", form);
       setForm({ nombre: "", dni: "", telefono: "", email: "", direccion_actual: "" });
       await load();
       Swal.fire("OK", "Inquilino creado", "success");

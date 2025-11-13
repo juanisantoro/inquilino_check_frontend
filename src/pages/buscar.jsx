@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
-import { api } from "../lib/api";
+import  api  from "../lib/api";
 
 export default function Buscar() {
   const [dni, setDni] = useState("");
@@ -9,7 +9,7 @@ export default function Buscar() {
   const search = async (e) => {
     e.preventDefault();
     try {
-      const res = await api().get("/inquilinos/dni/" + dni);
+      const res = await api.get("/inquilinos/dni/" + dni);
       setResult(res.data);
       if (res.data.length === 0) {
         Swal.fire("Sin resultados", "No encontramos al inquilino. ¿Deseas darlo de alta?", "info");
