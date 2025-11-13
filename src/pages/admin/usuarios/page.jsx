@@ -21,11 +21,14 @@ export default function AdminUsuarios() {
 
     const cargarUsuarios = async () => {
         const res = await api.get("/usuarios"); // ⬅ CON TOKEN
+        debugger;
+
         setUsuarios(res.data);
     };
 
     const cargarInmobiliarias = async () => {
         const res = await api.get("/admin/inmobiliarias"); // ⬅ CON TOKEN
+       debugger;
         setInmobiliarias(res.data);
     };
 
