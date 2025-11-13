@@ -51,7 +51,7 @@ export default function Historial() {
           <div key={e.id} className="card">
             <div className="flex justify-between">
               <div>
-                <div className="font-semibold">{e.inmobiliaria}</div>
+                <div className="font-semibold">0000{e.id}</div>
                 <div className="text-sm text-gray-600">{new Date(e.fecha).toLocaleString()}</div>
               </div>
               <div className="text-xl">⭐ {e.puntaje}</div>
