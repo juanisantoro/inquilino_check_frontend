@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { api } from "../../lib/api";
+import  api  from "../../lib/api";
 import Link from "next/link";
 
 export default function AdminInmobiliarias() {
@@ -20,7 +20,8 @@ export default function AdminInmobiliarias() {
 
     const cargarInmobiliarias = async () => {
         try {
-            const res = await api().get("/admin");
+            debugger;
+            const res = await api.get("/admin/inmobiliarias");
             setLista(res.data);
         } catch (err) {
             console.log(err);
@@ -29,7 +30,7 @@ export default function AdminInmobiliarias() {
 
     const toggleEstado = async (id) => {
         try {
-            await api().patch(`/admin/${id}/toggle`);
+            await api.patch(`/admin/inmobiliarias/${id}/toggle`);
             cargarInmobiliarias();
         } catch (err) {
             console.log(err);
