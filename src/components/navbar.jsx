@@ -46,7 +46,7 @@ export default function Navbar() {
                         </Link>
 
                         <Link href="/inquilinos" className="nav-link">
-                            Mis Inquilinos
+                         Inquilinos
                         </Link>
 
                         {/* 🔹 Solo admin */}
