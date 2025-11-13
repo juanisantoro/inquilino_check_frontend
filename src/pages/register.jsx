@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
-import { api } from "../lib/api";
+import  api  from "../lib/api";
 
 export default function Register() {
   const [form, setForm] = useState({
@@ -16,7 +16,7 @@ export default function Register() {
   const submit = async (e) => {
     e.preventDefault();
     try {
-      const res = await api().post("/auth/register", form);
+      const res = await api.post("/auth/register", form);
       localStorage.setItem("token", res.data.token);
       window.location.href = "/dashboard";
     } catch (err) {
