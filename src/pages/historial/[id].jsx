@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Swal from "sweetalert2";
-import { api } from "../lib/api";
+import { api } from "../../lib/api";
 
 export default function Historial() {
   const router = useRouter();
