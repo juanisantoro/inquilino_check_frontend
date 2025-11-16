@@ -70,14 +70,14 @@ export default function Dashboard() {
           <Link href="/inquilinos" className="card text-center hover:bg-blue-50">
             🏠 Ver/gestionar inquilinos
           </Link>
-
+{/* 
           <Link href="/buscar" className="card text-center hover:bg-blue-50">
             🔍 Buscar por DNI / CUIT
           </Link>
 
           <Link href="/inquilinos" className="card text-center hover:bg-blue-50">
             ➕ Cargar nuevo inquilino
-          </Link>
+          </Link> */}
 
         </div>
       </div>
