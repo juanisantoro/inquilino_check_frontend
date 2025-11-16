@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Cookies from "js-cookie";
 
 
 
@@ -41,9 +42,9 @@ export default function Navbar() {
                             Panel principal
                         </Link>
 
-                        <Link href="/buscar" className="nav-link">
+                        {/* <Link href="/buscar" className="nav-link">
                             Buscar Inquilino
-                        </Link>
+                        </Link> */}
 
                         <Link href="/inquilinos" className="nav-link">
                          Inquilinos
@@ -69,6 +70,10 @@ export default function Navbar() {
                     <button
                         onClick={() => {
                             localStorage.clear();
+                           
+                                Cookies.remove("token");
+                                Cookies.remove("role");
+                               
                             window.location.href = "/login";
                         }}
                         className="bg-blue-600 text-white px-4 py-1 rounded-md hover:bg-blue-700"

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Cookies from "js-cookie";
 import Swal from "sweetalert2";
 import api  from "../lib/api";
 
@@ -14,8 +15,8 @@ export default function Login() {
       localStorage.setItem("token", res.data.token);
         localStorage.setItem("role", res.data.user.rol);   // ✅ correcto
 
-        document.cookie = `token=${res.data.token}; path=/;`;
-        document.cookie = `role=${res.data.rol}; path=/;`;
+        Cookies.set("token", res.data.token, { expires: 7 });
+        Cookies.set("role", res.data.user.rol, { expires: 7 });
       window.location.href = "/dashboard";
     } catch {
       Swal.fire("Error", "Credenciales inválidas", "error");
