@@ -13,6 +13,9 @@ export default function Login() {
       const res = await api.post("/auth/login", { email, password });
       localStorage.setItem("token", res.data.token);
         localStorage.setItem("role", res.data.user.rol);   // ✅ correcto
+
+        document.cookie = `token=${res.data.token}; path=/;`;
+        document.cookie = `role=${res.data.rol}; path=/;`;
       window.location.href = "/dashboard";
     } catch {
       Swal.fire("Error", "Credenciales inválidas", "error");
